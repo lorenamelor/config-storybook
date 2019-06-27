@@ -1,17 +1,13 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo';
+import SnackBar from '../src/components/SnackBar';
 
-storiesOf('Componentes|Uteis/Buttons', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ), {
-    notes: "onClick"
+storiesOf('Componentes|Uteis/SnackBar', module)
+  .add('error', () => <SnackBar type="error" message="This is an error message!"/>)
+  .add('success', () => <SnackBar type="success" message="This is an success message!"/>)
+  .add('warning', () => <SnackBar type="warning" message="This is an warning message!"/>)
+  .add('info', () => <SnackBar type="info" message="This is an information message!"/>
+  ,{
+    notes: "menssagem"
   });

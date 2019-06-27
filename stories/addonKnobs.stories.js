@@ -1,16 +1,20 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+import ExpansionPanel from '../src/components/ExpasionPanel';
+
+const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex
+sit amet blandit leo lobortis eget`;
 
 storiesOf('Addons|Knobs', module)
   .addDecorator(withKnobs)
   .add('Em componentes', () => (
-    <Button disabled={boolean('Disabled', false)} onClick={action('clicked')}>
-      {text('Label', 'Hello Storybook')}
-    </Button>
+    <ExpansionPanel 
+      description={text('description', description)}
+      title={text('title', "Expansion Panels")}
+      disabled={boolean('Disabled', false)}
+    />
   ))
   .add('Em variáveis dinâmicas', () => {
     const name = text('Name', 'Lorena Carla');

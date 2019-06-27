@@ -1,11 +1,22 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { Button } from '@storybook/react/demo';
+// import { Button } from '@storybook/react/demo';
+import TextField from '@material-ui/core/TextField';
+
 
 storiesOf('Addons|Info', module)
   .addDecorator(withInfo)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+  .add('datePicker', () => (
+    <TextField
+      id="date"
+      label="Birthday"
+      type="date"
+      defaultValue="2017-05-24"
+      InputLabelProps={{
+        shrink: true,
+      }}
+  />
+  ))
